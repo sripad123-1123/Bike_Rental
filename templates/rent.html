@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Renting</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  
+  <form action="{% url 'rent' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="bname" value="{{bk.name}}"><br>
+	<label>Renting Date</label>
+	<input type="datetime-local" name="renting_Time" id="date1"  onchange="hours();" required><br>
+	
+	<label>Submission Date</label>
+    <input type="datetime-local" name="submission_Time" id="date2"  onchange="hours();" required><br>
+	
+	<label>Total Time(in hours):<input name="total_time" id="total_time" type="number" readonly/></label><br>
+  
+	
+  <label >Total Amount(in rs):<input name="total_amount" id="total_amount" type="number" readonly/></label>
+  
+  <input type="submit" id="btnClick" value="Rent">
+	
+  </form>
+  <script>
+    document.getElementById("btnClick").onclick = hours;
+    function hours()
+    {
+      var d1 = document.getElementById("date1");
+      var d2 = document.getElementById("date2");
+      var do1 = new Date(d1.value);
+      var do2 = new Date(d2.value);
+      var test = Math.abs(do2-do1);
+      
+      var t = test.valueOf();
+      var totalHours = t/(1000*60*60);
+      
+      document.getElementById("total_time").value = totalHours;
+      document.getElementById("total_amount").value = totalHours*"{{bk.price}}";
+    } 
+
+    
+  </script>
+  <h2>Bike Details</h2>
+  {{bk.name}}<br>
+
+  <img src="{{bk.img.url}}"><br>
+  {{bk.desc}}<br>
+  {{bk.price}}<br>
+</body>
+</html>

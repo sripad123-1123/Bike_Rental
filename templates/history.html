@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User History</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <a href="{% url 'index'%}">Home</a>
+    <a href="{% url 'logout'%}">Logout</a>
+    <h1>Hello {{user.username}},here is your rental history</h1>
+    <table class="table table-dark",align="center">
+  
+        <tbody>
+          <tr>
+            <th scope="row">S.no.</th>
+            <th scope="row">Name of the Bike</th>
+            <th scope="row">Start Time and Date</th>
+            <th scope="row">End Time and Date</th>
+            <th scope="row">Total Duration</th>
+            <th scope="row">Amount Paid</th>
+           
+          </tr>
+          {% for item in history %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{item.bike.name}}</td>
+            <td>{{item.start_time}}</td>
+            <td>{{item.end_time}}</td>
+            <td>{{item.total_time}}</td>
+            <td>{{item.total_cost}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+</body>
+</html>
