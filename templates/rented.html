@@ -10,7 +10,7 @@
 <body>
   <a href="{% url 'history'%}">Rental History</a>
   <a href="{% url 'index'%}">Home</a>
-    <h1>Congratulations,{{user.username}}.Your bike has been rented successfully</h1>
+    <h1>Congratulations,{{user.first_name}} {{user.last_name}}.Your bike has been rented successfully</h1>
   
     <h3>Bike Details</h3>
     <img src="{{book.bike.img.url}}"><br>

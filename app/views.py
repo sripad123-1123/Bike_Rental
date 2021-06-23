@@ -48,7 +48,7 @@ def rented(request,pk1):
 #     model = Rent
 #     template_name = 'rented.html'
 
-@login_required
+
 def history(request):
     history = Rent.objects.filter(user=request.user).order_by("-id")
 

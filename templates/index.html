@@ -36,14 +36,15 @@
 									{% if user.is_authenticated %}
 									<li>Hello,{{user.first_name}}</li>
 									<li class="active"><a href="{%url 'index'%}">Home</a></li>
-									<li><a href="accounts/logout">Logout</a></li>
-									<li><a href="app/history">User History</a></li>
-									<li><a href="{% url 'searchbar'%}">Search Bikes</a></li>
+									<li><a href="{% url 'bookings'%}">Book</a></li>
+									<li><a href="{% url 'logout'%}">Logout</a></li>
+									<li><a href="{% url 'history'%}">User History</a></li>
 									
+									<li><a href="{% url 'searchbar'%}">Search Bikes</a></li>
                                     {% else %}
 									<li class="active"><a href="{% url 'index'%}">Home</a></li>
-									<li><a href="/accounts/register">Register</a></li>
-									<li><a href="/accounts/login">Login</a></li>
+									<li><a href="{% url 'register'%}">Register</a></li>
+									<li><a href="{% url 'login'%}">Login</a></li>
 									
 								    {% endif %}
 								</ul>
@@ -84,7 +85,7 @@
 
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="background_image" style="background-image:url(/static/images/back_ground2.jpg)"></div>
+					<div class="background_image" style="background-image:url(/static/images/rapido1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -100,7 +101,7 @@
 
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="background_image" style="background-image:url(/static/images/back_ground2.jpg)"></div>
+					<div class="background_image" style="background-image:url(/static/images/rapido1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -116,7 +117,7 @@
 
 				<!-- Slide -->
 				<div class="owl-item">
-					<div class="background_image" style="background-image:url(/static/images/back_ground2.jpg)"></div>
+					<div class="background_image" style="background-image:url(/static/images/rapido1.jpg)"></div>
 					<div class="home_slider_content_container">
 						<div class="container">
 							<div class="row">
@@ -151,7 +152,7 @@
 
 	<!-- Destinations -->
 
-	<div class="destinations" id="destinations">
+	<!-- <div class="destinations" id="destinations">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
@@ -162,9 +163,9 @@
 			<div class="row destinations_row">
 				<div class="col">
 					<div class="destinations_container item_grid">
-                       {% for item in items%}
+                       {% for item in items%} -->
 						<!-- Destination -->
-						<div class="destination item">
+						<!-- <div class="destination item">
 							<div class="destination_image">
 								<a href="{% url 'rent' item.slug%}">
 									<img src="{{item.img.url}}" alt=""></a>
@@ -173,9 +174,9 @@
 							<div class="destination_content">
 								<div class="destination_title"><a href="{% url 'rent' %}">{{item.name}}</a></div>
 								<div class="destination_subtitle"><p>{{item.desc}}</p></div>
-								<div class="destination_price">From Rs.{{item.price}} per hour</div>
+								<div class="destination_price">From Rs.{{item.price}} per hour</div> -->
 								
-							</div>
+							<!-- </div>
 						</div>
                         {% endfor %}
 						
@@ -183,7 +184,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- <div class="pagination" id="pagination">
 		<div class="container">
 			<div class="row">
@@ -206,7 +207,7 @@
 				  <li class="page-item"><a class="page-link" href="#">Next</a></li>
 				</ul>
 			  </nav> -->
-			  {% if items.has_other_pages %}
+			  <!-- {% if items.has_other_pages %}
 			  <ul class="pagination justify-content-center">
 				  {% if items.has_previous %}
 				  <li class="page-item"><a class="page-link" aria-label="Previous"
@@ -230,7 +231,7 @@
 				  <li class="page-item disabled"><a class="page-link" href="#"><span>&raquo;</span></a></li>
 				  {% endif %}
 			  </ul>
-			  {% endif %}
+			  {% endif %} -->
 	
 			<!-- <header class="pagination" id="pagination">
 				<div class="container">

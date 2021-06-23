@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+
     
 ]
 
@@ -70,7 +72,7 @@ TEMPLATES = [
         },
     },
 ]
-
+AUTH_USER_MODEL = 'accounts.Account'
 WSGI_APPLICATION = 'bike_rental.wsgi.application'
 
 
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'bike_rental.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dbs',
+        'NAME': 'bikedb',
         'USER':'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost'
@@ -142,22 +144,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Default Login
 
-# LOGIN_REDIRECT_URL = '/accounts/login/'
-LOGIN_URL = '/accounts/login/'
-REGISTER_URL = '/accounts/register/'
-RENT_URL = '/app/rent/'
-HOME_URL = ''
+
 
 
 #EMAIL VERIFICATION
-EMAIL_ACTIVE_FIELD = 'is_active'
-EMAIL_SERVER = 'smtp.gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_ADDRESS = 'sripad183@gmail.com'
-EMAIL_FROM_ADDRESS = 'pradyumna13@gmail.com'
-EMAIL_PASSWORD = 's1r2i3p4a5d6'
-EMAIL_MAIL_SUBJECT = 'Confirm your email'
-EMAIL_MAIL_HTML = 'mail_body.html'
-EMAIL_MAIL_PLAIN = 'mail_body.txt'
-EMAIL_PAGE_TEMPLATE = 'confirm.html'
-EMAIL_PAGE_DOMAIN = 'http//mydomain.com/'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'sripad183@gmail.com'
+EMAIL_HOST_PASSWORD = 'jvqofzuctzfhqjhv'
+DEFAULT_FROM_EMAIL = 'sripad183@gmail.com'
+
